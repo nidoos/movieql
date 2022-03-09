@@ -1,19 +1,15 @@
 // resolvers : 쿼리를 해결하는것
 
-const nidoos={
-    name : "nidoos",
-    age: 20,
-    gender: "female"
-
-}
+import { people, getById } from "./DB.js";
 
 const resolvers ={
     Query: {
-        person: () => nidoos
+        people: () => people,
         // person: function(){
         //     return nidoos
         // }
+        person: (_, {id}) => getById(id)
     }
-}
+};
 
 export default resolvers;
