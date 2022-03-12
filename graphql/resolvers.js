@@ -1,14 +1,14 @@
 // resolvers : 쿼리를 해결하는것
 
-import { people, getById } from "./DB.js";
+import { getMovies, getById, addMovie } from "./DB.js";
 
 const resolvers ={
     Query: {
-        people: () => people,
-        // person: function(){
-        //     return nidoos
-        // }
-        person: (_, {id}) => getById(id)
+        movies: () => getMovies(),
+        movie: (_, {id}) => getById(id)
+    },
+    Mutation: {
+        addMovie: (_, {name, score}) => addMovie(name, score)
     }
 };
 
